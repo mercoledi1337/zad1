@@ -5,7 +5,7 @@ namespace exercise1.Interfaces
 {
     public interface IXslx
     {
-        public Xslx GetXslx(int Id);
+        public XslxresultClass GetXslx(int Id);
         public Task<IActionResult> UploadXslx(IFormFileCollection csv);
     }
 }

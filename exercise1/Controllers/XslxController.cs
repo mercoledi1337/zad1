@@ -23,33 +23,19 @@ namespace exercise1.Controllers
         private readonly IXslx _xslx;
         private readonly DataContext _context;
 
+
         public XslxController(IXslx xslx, DataContext context)
         {
             _xslx = xslx;
             _context = context;
+
         }
 
         [HttpGet]
         public async Task<IActionResult> GetXslx(int id)
         {
-
-            var csv = _context.Csv.Where(c => c.Id == id).FirstOrDefault();
-
-            if (csv == null)
-            {
-                return BadRequest("There is not data with this id");
-            }
-
-            StringBuilder tmp = new StringBuilder();
-            using (var r = ChoJSONReader.LoadText(csv.csvData))
-            {
-                using (var w = new ChoCSVWriter(tmp).WithFirstLineHeader())
-                {
-                    w.Write(r);
-                }
-            }
-
-            return Ok("1");
+            var result = _xslx.GetXslx(id);
+            return Ok(result.csvData.ToString());
         }
 
         [HttpPost]
