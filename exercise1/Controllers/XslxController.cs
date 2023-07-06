@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using exercise1.Models;
 using exercise1.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
 namespace exercise1.Controllers
 {
@@ -35,7 +36,7 @@ namespace exercise1.Controllers
         public async Task<IActionResult> GetXslx(int id)
         {
             var result = _xslx.GetXslx(id);
-            return Ok(result.csvData.ToString());
+            return File(Encoding.UTF8.GetBytes(result.csvData.ToString()), "text/csv", "skrt");
         }
 
         [HttpPost]
