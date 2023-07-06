@@ -36,7 +36,9 @@ namespace exercise1.Controllers
         public async Task<IActionResult> GetXslx(int id)
         {
             var result = _xslx.GetXslx(id);
-            return File(Encoding.UTF8.GetBytes(result.csvData.ToString()), "text/csv", "skrt");
+            if (result == null)
+                return BadRequest("There is not such a file with this id");
+            return File(Encoding.UTF8.GetBytes(result.csvData.ToString()), "text/csv", result.Name);
         }
 
         [HttpPost]
@@ -72,7 +74,7 @@ namespace exercise1.Controllers
             
             await _context.SaveChangesAsync();
 
-            return Ok("ok");
+            return Ok(sb.ToString());
         }
     }
 }
