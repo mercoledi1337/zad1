@@ -12,3 +12,13 @@ jobs:
     runs-on: windows
     steps:
       - uses: actions/checkout@v2
+      - name: hello world
+        run: echo "Hello wordls"
+        shell: cmd
+
+  goodbye:
+    runs-on: ubuntu-latest
+    steps:
+      - name: goodbye world
+        run: echo "Goodbye world"
+        shell: cmd
