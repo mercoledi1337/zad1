@@ -4186,11 +4186,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mserda\\source\\repos\\exercise1\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\mserda\\source\\repos\\exercise1\\zad1\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\mserda\\source\\repos\\exercise1\\Application\\Application.csproj",
+      "projectPath": "C:\\Users\\mserda\\source\\repos\\exercise1\\zad1\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\mserda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mserda\\source\\repos\\exercise1\\Application\\obj\\",
+      "outputPath": "C:\\Users\\mserda\\source\\repos\\exercise1\\zad1\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mserda\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4207,8 +4207,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\mserda\\source\\repos\\exercise1\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\mserda\\source\\repos\\exercise1\\Domain\\Domain.csproj"
+            "C:\\Users\\mserda\\source\\repos\\exercise1\\zad1\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\mserda\\source\\repos\\exercise1\\zad1\\Domain\\Domain.csproj"
             }
           }
         }

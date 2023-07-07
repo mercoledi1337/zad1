@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WmFG8qCWiBcz+ZpXJC16jVXexsvGYF2DGKiK5oi9Y9++Mywi1iy7+x7PI6plYvESznv/m8EcdckwzLVOkkbvpg==",
+  "dgSpecHash": "QfSHA1F3A9QRjbQ3xjFovxjhjUceN55qKrFhJTl521vGaGhgZdW6CLbEhNCZhgrM3IG1NxbD/Irc9KNqx0wLVQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mserda\\source\\repos\\exercise1\\exercise1\\exercise1.csproj",
+  "projectFilePath": "C:\\Users\\mserda\\source\\repos\\exercise1\\zad1\\exercise1\\exercise1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mserda\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\mserda\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
