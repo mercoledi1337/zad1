@@ -6,5 +6,6 @@ namespace exercise1.Interfaces
     public interface IXslxService
     {
         public XslxresultClass Get(int id); 
+        public Task Upload(IFormFile name);
     }
 }

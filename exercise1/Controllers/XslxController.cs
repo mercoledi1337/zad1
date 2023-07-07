@@ -45,37 +45,9 @@ namespace exercise1.Controllers
         [HttpPost]
         public async Task<IActionResult> UploadXslx(IFormFile csv)
         {
-                var csvInBase = await _context.Csv
-                .Where(w => w.Name == csv.FileName)
-                .FirstOrDefaultAsync();
+                await _xslx.Upload(csv);
 
-            StringBuilder sb = new StringBuilder();
-            using (var p = new ChoCSVReader(csv.OpenReadStream())
-                .WithFirstLineHeader()
-                )
-            {
-                using (var w = new ChoJSONWriter(sb))
-                    w.Write(p);
-            }
-
-            if (csvInBase == null)
-            {
-                var tmpCsv = new Xslx
-                {
-                    Name = csv.FileName,
-                    csvData = sb.ToString(),
-                    inserttimetamp = DateTime.UtcNow
-                };
-                _context.Csv.Add(tmpCsv);
-            } else
-            {
-                csvInBase.csvData = sb.ToString();
-                csvInBase.inserttimetamp = DateTime.UtcNow;
-            }
-            
-            await _context.SaveChangesAsync();
-
-            return Ok(sb.ToString());
+            return Ok("ok");
         }
     }
 }

@@ -24,14 +24,27 @@ namespace exercise1.Repository
         //    return _context.Csv.Where(u => u.Id == id).FirstOrDefault();
         //}
 
-        public Task<IActionResult> UploadXslx(IFormFileCollection csv)
+        public async Task<Xslx> Get(IFormFile csv)
         {
-            throw new NotImplementedException();
+            return await _context.Csv.FirstOrDefaultAsync(w => w.Name == csv.FileName);
         }
 
-        public Xslx GetXslx(int Id)
+        public async Task Save(Xslx csv)
         {
-            return _context.Csv.Where(c => c.Id == Id).FirstOrDefault();
+            
+            await _context.Csv.AddAsync(csv);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task Update(Xslx csv, StringBuilder sb)
+        {
+            await _context.SaveChangesAsync();
+        }
+
+
+        public async Task<Xslx> GetXslx(int Id)
+        {
+            return await _context.Csv.FirstOrDefaultAsync(c => c.Id == Id);
         }
     }
 }
