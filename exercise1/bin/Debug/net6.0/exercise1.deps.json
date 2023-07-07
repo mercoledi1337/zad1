@@ -8,7 +8,10 @@
     ".NETCoreApp,Version=v6.0": {
       "exercise1/1.0.0": {
         "dependencies": {
+          "ChoETL": "1.2.1.58",
           "ChoETL.JSON": "1.2.1.53",
+          "Infrastructure": "1.0.0",
+          "Microsoft.AspNetCore.Http.Features": "5.0.17",
           "Microsoft.EntityFrameworkCore": "7.0.8",
           "Microsoft.EntityFrameworkCore.InMemory": "7.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.8",
@@ -56,7 +59,7 @@
           }
         }
       },
-      "ChoETL/1.2.1.56": {
+      "ChoETL/1.2.1.58": {
         "dependencies": {
           "Microsoft.CSharp": "4.5.0",
           "System.CodeDom": "4.4.0",
@@ -68,14 +71,14 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/ChoETL.Core.dll": {
-            "assemblyVersion": "1.2.1.56",
-            "fileVersion": "1.2.1.56"
+            "assemblyVersion": "1.2.1.58",
+            "fileVersion": "1.2.1.58"
           }
         }
       },
       "ChoETL.JSON/1.2.1.53": {
         "dependencies": {
-          "ChoETL": "1.2.1.56",
+          "ChoETL": "1.2.1.58",
           "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
@@ -91,6 +94,12 @@
             "assemblyVersion": "2.14.0.0",
             "fileVersion": "2.14.1.48190"
           }
+        }
+      },
+      "Microsoft.AspNetCore.Http.Features/5.0.17": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "7.0.0",
+          "System.IO.Pipelines": "5.0.2"
         }
       },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
@@ -1169,6 +1178,7 @@
           "System.Runtime": "4.3.0"
         }
       },
+      "System.IO.Pipelines/5.0.2": {},
       "System.Linq/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -1738,6 +1748,48 @@
             "fileVersion": "2.4.2.0"
           }
         }
+      },
+      "Application/1.0.0": {
+        "dependencies": {
+          "ChoETL": "1.2.1.58",
+          "ChoETL.JSON": "1.2.1.53",
+          "Domain": "1.0.0",
+          "Microsoft.AspNetCore.Http.Features": "5.0.17",
+          "Microsoft.EntityFrameworkCore": "7.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.8",
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "runtime": {
+          "Application.dll": {}
+        }
+      },
+      "Domain/1.0.0": {
+        "dependencies": {
+          "ChoETL": "1.2.1.58",
+          "ChoETL.JSON": "1.2.1.53",
+          "Microsoft.AspNetCore.Http.Features": "5.0.17",
+          "Microsoft.EntityFrameworkCore": "7.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.8",
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "runtime": {
+          "Domain.dll": {}
+        }
+      },
+      "Infrastructure/1.0.0": {
+        "dependencies": {
+          "Application": "1.0.0",
+          "ChoETL": "1.2.1.58",
+          "ChoETL.JSON": "1.2.1.53",
+          "Domain": "1.0.0",
+          "Microsoft.AspNetCore.Http.Features": "5.0.17",
+          "Microsoft.EntityFrameworkCore": "7.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.8",
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "runtime": {
+          "Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -1761,12 +1813,12 @@
       "path": "azure.identity/1.6.0",
       "hashPath": "azure.identity.1.6.0.nupkg.sha512"
     },
-    "ChoETL/1.2.1.56": {
+    "ChoETL/1.2.1.58": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-x71A/cvnMCrQhhrUmuLhr2GFpzf2q7bzgcvvS2TZamF+BteEnt2S9XOn6kzj+xg2ztt9lBGtNjJ+ztQcATZq4Q==",
-      "path": "choetl/1.2.1.56",
-      "hashPath": "choetl.1.2.1.56.nupkg.sha512"
+      "sha512": "sha512-CKe/2+m05u/ggLcYUsi2A649GaysPtWP/RIWNLu7rMfZ7z7efu6d1QXG4zVqo1CcL4+bBG4qbYknV1LAdbbURw==",
+      "path": "choetl/1.2.1.58",
+      "hashPath": "choetl.1.2.1.58.nupkg.sha512"
     },
     "ChoETL.JSON/1.2.1.53": {
       "type": "package",
@@ -1781,6 +1833,13 @@
       "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Features/5.0.17": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3jG2xS+dx8DDCGV/F+STdPTg89lX3ao3dF/VEPvJaz3wzBIjuadipTtYNEXDIVuOPZwb6jdmhrX9jkzOIBm5cw==",
+      "path": "microsoft.aspnetcore.http.features/5.0.17",
+      "hashPath": "microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "type": "package",
@@ -2426,6 +2485,13 @@
       "path": "system.io.filesystem.primitives/4.3.0",
       "hashPath": "system.io.filesystem.primitives.4.3.0.nupkg.sha512"
     },
+    "System.IO.Pipelines/5.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Iew+dfa6FFiyvWBdRmXApixRY1db+beyutpIck4SOSe0NLM8FD/7AD54MscqVLhvfSMLHO7KadjTRT7fqxOGTA==",
+      "path": "system.io.pipelines/5.0.2",
+      "hashPath": "system.io.pipelines.5.0.2.nupkg.sha512"
+    },
     "System.Linq/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -2824,6 +2890,21 @@
       "sha512": "sha512-CZmgcKkwpyo8FlupZdWpJCryrAOWLh1FBPG6gmVZuPQkGQsim/oL4PcP4nfrC2hHgXUFtluvaJ0Sp9PQKUMNpg==",
       "path": "xunit.extensibility.execution/2.4.2",
       "hashPath": "xunit.extensibility.execution.2.4.2.nupkg.sha512"
+    },
+    "Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

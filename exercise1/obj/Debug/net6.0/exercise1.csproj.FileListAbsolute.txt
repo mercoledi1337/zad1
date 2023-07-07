@@ -174,3 +174,9 @@ C:\Users\mserda\source\repos\exercise1\exercise1\bin\Debug\net6.0\zh-Hans\Micros
 C:\Users\mserda\source\repos\exercise1\exercise1\bin\Debug\net6.0\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 C:\Users\mserda\source\repos\exercise1\exercise1\bin\Debug\net6.0\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Users\mserda\source\repos\exercise1\exercise1\bin\Debug\net6.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+C:\Users\mserda\source\repos\exercise1\exercise1\bin\Debug\net6.0\Application.dll
+C:\Users\mserda\source\repos\exercise1\exercise1\bin\Debug\net6.0\Domain.dll
+C:\Users\mserda\source\repos\exercise1\exercise1\bin\Debug\net6.0\Infrastructure.dll
+C:\Users\mserda\source\repos\exercise1\exercise1\bin\Debug\net6.0\Infrastructure.pdb
+C:\Users\mserda\source\repos\exercise1\exercise1\bin\Debug\net6.0\Application.pdb
+C:\Users\mserda\source\repos\exercise1\exercise1\bin\Debug\net6.0\Domain.pdb
