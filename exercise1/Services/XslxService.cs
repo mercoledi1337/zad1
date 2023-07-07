@@ -53,14 +53,16 @@ namespace exercise1.Services
                 csvData = sb.ToString(),
                 inserttimetamp = DateTime.UtcNow
             };
-            var tmp = _xslxRepository.Get(csv);
-            if (_xslxRepository.Get(csv) == null) 
+            var tmp = await _xslxRepository.Get(csv);
+            if (tmp == null)
+            {
                 await _xslxRepository.Save(tmpCsv);
+            }
             else
-                tmp.Result.csvData = sb.ToString();
-                tmp.Result.inserttimetamp = DateTime.UtcNow;
-                await _xslxRepository.Update(tmp);
-
+            {
+               
+                await _xslxRepository.Update(tmp, sb);
+            }
 
 
 

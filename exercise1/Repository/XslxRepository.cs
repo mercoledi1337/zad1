@@ -36,8 +36,10 @@ namespace exercise1.Repository
             await _context.SaveChangesAsync();
         }
 
-        public async Task Update(Task<Xslx> csv)
+        public async Task Update(Xslx csv, StringBuilder sb)
         {
+            csv.csvData = sb.ToString();
+            csv.inserttimetamp = DateTime.UtcNow;
             await _context.SaveChangesAsync();
         }
 
