@@ -59,7 +59,7 @@ namespace exercise1.Services
             else
                 tmp.Result.csvData = sb.ToString();
                 tmp.Result.inserttimetamp = DateTime.UtcNow;
-                await _xslxRepository.Update(tmp, sb);
+                await _xslxRepository.Update(tmp);
 
 
 

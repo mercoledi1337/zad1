@@ -36,7 +36,7 @@ namespace exercise1.Repository
             await _context.SaveChangesAsync();
         }
 
-        public async Task Update(Xslx csv, StringBuilder sb)
+        public async Task Update(Task<Xslx> csv)
         {
             await _context.SaveChangesAsync();
         }

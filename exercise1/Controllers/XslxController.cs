@@ -17,23 +17,20 @@ using exercise1.Services;
 
 namespace exercise1.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     
     public class XslxController : Controller
     {
         private readonly XslxService _xslx;
-        private readonly DataContext _context;
 
 
-        public XslxController(XslxService xslx, DataContext context)
+        public XslxController(XslxService xslx)
         {
             _xslx = xslx;
-            _context = context;
-
         }
 
-        [HttpGet]
+        [HttpGet("Get")]
         public async Task<IActionResult> GetXslx(int id)
         {
             var result = _xslx.Get(id);
