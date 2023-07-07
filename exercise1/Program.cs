@@ -1,7 +1,4 @@
 using exercise1.Interfaces;
-using System.Text;
-using Microsoft.OpenApi.Models;
-using exercise1.Models;
 using exercise1.Repository;
 using exercise1.Data;
 using Microsoft.EntityFrameworkCore;
