@@ -1,18 +1,5 @@
-﻿using exercise1.Interfaces;
-using Microsoft.AspNetCore.Mvc;
-using System.Data;
-using System.Text.Json;
-using System.Xml;
-using static System.Net.Mime.MediaTypeNames;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Text;
-using ChoETL;
-using System.IO;
-using Microsoft.AspNetCore.Mvc.Razor.Infrastructure;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
-using exercise1.Models;
-using exercise1.Data;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.FileProviders;
 using exercise1.Services;
 
 namespace exercise1.Controllers
@@ -22,27 +9,27 @@ namespace exercise1.Controllers
     
     public class XslxController : Controller
     {
-        private readonly XslxService _xslx;
+        private readonly FileService _fileService;
 
 
-        public XslxController(XslxService xslx)
+        public XslxController(FileService fileService)
         {
-            _xslx = xslx;
+            _fileService = fileService;
         }
 
         [HttpGet("Get")]
-        public async Task<IActionResult> GetXslx(int id)
+        public async Task<IActionResult> GetFile(int id)
         {
-            var result = _xslx.Get(id);
+            var result = _fileService.Get(id);
             if (result == null)
                 return BadRequest("There is not such a file with this id");
-            return File(Encoding.UTF8.GetBytes(result.csvData.ToString()), "text/csv", result.Name);
+            return File(Encoding.UTF8.GetBytes(result.Json.ToString()), "text/csv", result.Name);
         }
 
         [HttpPost]
-        public async Task<IActionResult> UploadXslx(IFormFile csv)
+        public async Task<IActionResult> UploadFile(IFormFile csv)
         {
-                await _xslx.Upload(csv);
+                await _fileService.Upload(csv);
 
             return Ok("ok");
         }

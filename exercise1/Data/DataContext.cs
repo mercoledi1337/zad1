@@ -10,6 +10,6 @@ namespace exercise1.Data
 
         }
 
-        public DbSet<Xslx> Csv { get; set; }
+        public DbSet<FileUpload> File { get; set; }
     }
 }

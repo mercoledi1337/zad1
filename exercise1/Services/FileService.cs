@@ -8,30 +8,31 @@ using System.Xml.Xsl;
 
 namespace exercise1.Services
 {
-    public class XslxService : IXslxService
+    public class FileService : IFileService
     {
-        private readonly IXslx _xslxRepository;
+        private readonly IFileUpload _fileUpload;
 
-        public XslxService(IXslx xslxRepository)
+        public FileService(IFileUpload fileUpload)
         {
-            _xslxRepository = xslxRepository;
+            _fileUpload = fileUpload;
         }
-        public XslxresultClass Get(int id)
+        public FileResultClass Get(int id)
         {
-            var csv = _xslxRepository.GetXslx(id);
+            //taking from base and making csv
+            var csv = _fileUpload.GetFile(id);
             StringBuilder tmp = new StringBuilder();
-            using (var r = ChoJSONReader.LoadText(csv.Result.csvData))
+            using (var r = ChoJSONReader.LoadText(csv.Result.Json))
             {
                 using (var w = new ChoCSVWriter(tmp).WithFirstLineHeader())
                 {
                     w.Write(r);
                 }
             }
-            XslxresultClass result = new()
+            FileResultClass result = new()
             {
                 Id = csv.Id,
                 Name = csv.Result.Name,
-                csvData = tmp
+                Json = tmp
             };
 
             return result;
@@ -47,20 +48,20 @@ namespace exercise1.Services
                 using (var w = new ChoJSONWriter(sb))
                     w.Write(p);
             }
-            var tmpCsv = new Xslx
+            var tmpCsv = new FileUpload
             {
                 Name = csv.FileName,
-                csvData = sb.ToString(),
+                Json = sb.ToString(),
                 inserttimetamp = DateTime.UtcNow
             };
-            var tmp = await _xslxRepository.Get(csv);
+            var tmp = await _fileUpload.Get(csv);
             if (tmp == null)
             {
-                await _xslxRepository.Save(tmpCsv);
+                await _fileUpload.Save(tmpCsv);
             }
             else
             {
-                await _xslxRepository.Update(tmp, sb);
+                await _fileUpload.Update(tmp, sb);
             }
 
 

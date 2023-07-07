@@ -3,9 +3,9 @@ using System.Text;
 
 namespace exercise1.Interfaces
 {
-    public interface IXslxService
+    public interface IFileService
     {
-        public XslxresultClass Get(int id); 
+        public FileResultClass Get(int id); 
         public Task Upload(IFormFile name);
     }
 }

@@ -22,7 +22,7 @@ namespace exercise1.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("exercise1.Models.Xslx", b =>
+            modelBuilder.Entity("exercise1.Models.FileUpload", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,11 +30,12 @@ namespace exercise1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Json")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("csvData")
+                    b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("inserttimetamp")
@@ -42,7 +43,7 @@ namespace exercise1.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Csv");
+                    b.ToTable("File");
                 });
 #pragma warning restore 612, 618
         }

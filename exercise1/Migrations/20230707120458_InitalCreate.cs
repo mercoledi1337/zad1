@@ -6,24 +6,24 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace exercise1.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitalCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Csv",
+                name: "File",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    csvData = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Json = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     inserttimetamp = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Csv", x => x.Id);
+                    table.PrimaryKey("PK_File", x => x.Id);
                 });
         }
 
@@ -31,7 +31,7 @@ namespace exercise1.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Csv");
+                name: "File");
         }
     }
 }

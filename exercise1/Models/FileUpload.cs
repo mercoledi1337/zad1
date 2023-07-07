@@ -1,10 +1,10 @@
 ﻿namespace exercise1.Models
 {
-    public class Xslx
+    public class FileUpload
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string csvData { get; set; }
+        public string Json { get; set; }
         public DateTime inserttimetamp { get; set;}
     }
 }

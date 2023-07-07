@@ -2,10 +2,10 @@
 
 namespace exercise1.Interfaces
 {
-    public class XslxresultClass
+    public class FileResultClass
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public StringBuilder csvData { get; set; }
+        public StringBuilder Json { get; set; }
     }
 }
