@@ -29,28 +29,9 @@ namespace exercise1.Repository
             throw new NotImplementedException();
         }
 
-        public XslxresultClass GetXslx(int Id)
+        public Xslx GetXslx(int Id)
         {
-            var csv = _context.Csv.Where(c => c.Id == Id).FirstOrDefault();
-
-            StringBuilder tmp = new StringBuilder();
-            using (var r = ChoJSONReader.LoadText(csv.csvData))
-            {
-                using (var w = new ChoCSVWriter(tmp).WithFirstLineHeader())
-                {
-                    w.Write(r);
-                }
-            }
-            
-
-
-            XslxresultClass restult = new()
-            {
-                Id = csv.Id,
-                Name = csv.Name,
-                csvData = tmp
-        };
-            return restult;
+            return _context.Csv.Where(c => c.Id == Id).FirstOrDefault();
         }
     }
 }

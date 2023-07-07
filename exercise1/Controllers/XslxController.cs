@@ -13,6 +13,7 @@ using exercise1.Models;
 using exercise1.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
+using exercise1.Services;
 
 namespace exercise1.Controllers
 {
@@ -21,11 +22,11 @@ namespace exercise1.Controllers
     
     public class XslxController : Controller
     {
-        private readonly IXslx _xslx;
+        private readonly XslxService _xslx;
         private readonly DataContext _context;
 
 
-        public XslxController(IXslx xslx, DataContext context)
+        public XslxController(XslxService xslx, DataContext context)
         {
             _xslx = xslx;
             _context = context;
@@ -35,7 +36,7 @@ namespace exercise1.Controllers
         [HttpGet]
         public async Task<IActionResult> GetXslx(int id)
         {
-            var result = _xslx.GetXslx(id);
+            var result = _xslx.Get(id);
             if (result == null)
                 return BadRequest("There is not such a file with this id");
             return File(Encoding.UTF8.GetBytes(result.csvData.ToString()), "text/csv", result.Name);
