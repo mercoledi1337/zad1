@@ -6,9 +6,9 @@ namespace exercise1.Interfaces
 {
     public interface IFileUpload
     {
-        public Task<FileUpload> GetFile(int Id);
-        public Task<FileUpload> Get(IFormFile csv);
-        public Task Save(FileUpload json);
-        public Task Update(FileUpload json, StringBuilder sb);
+        public Task<Models.IFileUpload> GetFile(int Id);
+        public Task<Models.IFileUpload> Get(IFormFile csv);
+        public Task Save(Models.IFileUpload json);
+        public Task Update(Models.IFileUpload json, StringBuilder sb);
     }
 }

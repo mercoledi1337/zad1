@@ -10,6 +10,6 @@ namespace exercise1.Data
 
         }
 
-        public DbSet<FileUpload> File { get; set; }
+        public DbSet<IFileUpload> File { get; set; }
     }
 }

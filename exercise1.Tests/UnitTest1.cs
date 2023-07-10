@@ -1,19 +1,13 @@
 using ChoETL;
 using exercise1.Data;
-using exercise1.Interfaces;
-using exercise1.Models;
 using exercise1.Repository;
 using exercise1.Services;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel;
-using Moq;
 using NUnit.Framework;
-using System.IO;
-using System.Text;
-using System.Xml.Linq;
+
+
 
 namespace exercise1.Tests
 {
@@ -33,17 +27,18 @@ namespace exercise1.Tests
             context = new DataContext(dbContextOptions);
             context.Database.EnsureCreated();
             SeedDatabase();
-            StringBuilder tmp = new StringBuilder("override");
-            var fileRepo = new FileRepository(context);
-            var t = context.File.FirstOrDefault(c => c.Name == "test");
-            await fileRepo.Update(t, tmp);
-            t.Json.Should().NotBeNull();
-            t.Json.Should().Be("override");   
+            var stream = System.IO.File.OpenRead("test.csv");
+            IFormFile tmpFile = new FormFile(stream, 0, stream.Length, null, Path.GetFileName(stream.Name));
+            var fileUpload = new FileRepository(context);
+            var tmp = new FileService(fileUpload);
+            await tmp.Upload(tmpFile);
+            await tmp.Upload(tmpFile);
+            await tmp.Upload(tmpFile);
+            var res = context.File.Count();
+            res.Should().NotBe(5);
+            res.Should().Be(3);
         }
 
-
-
-        
         public void CleanUp()
         {
             context.Database.EnsureDeleted();
@@ -51,29 +46,28 @@ namespace exercise1.Tests
 
         private void SeedDatabase()
         {
-            
-            var tmp = new FileUpload()
+            var tmp = new Models.IFileUpload()
             {
                 Name = "test",
                 Json = "asd",
                 inserttimetamp = DateTime.UtcNow
             };
-
-            var tmp1 = new FileUpload()
+            var tmp1 = new Models.IFileUpload()
             {
                 Name = "test1",
                 Json = "asd1",
                 inserttimetamp = DateTime.UtcNow
             };
-            
-            context.File.AddAsync(tmp);
+
+
+            context.File.Add(tmp);
             context.SaveChanges();
 
             context.File.Add(tmp1);
             context.SaveChanges();
 
-            
+
+
         }
-            
     }
 }

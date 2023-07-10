@@ -8,9 +8,9 @@ namespace exercise1.Services
 {
     public class FileService : IFileService
     {
-        private readonly IFileUpload _fileUpload;
+        private readonly Interfaces.IFileUpload _fileUpload;
 
-        public FileService(IFileUpload fileUpload)
+        public FileService(Interfaces.IFileUpload fileUpload)
         {
             _fileUpload = fileUpload;
         }
@@ -46,7 +46,7 @@ namespace exercise1.Services
                 using (var w = new ChoJSONWriter(sb))
                     w.Write(p);
             }
-            var tmpCsv = new FileUpload
+            var tmpCsv = new Models.IFileUpload
             {
                 Name = csv.FileName,
                 Json = sb.ToString(),

@@ -1,6 +1,6 @@
 ﻿namespace exercise1.Models
 {
-    public class FileUpload
+    public class IFileUpload
     {
         public int Id { get; set; }
         public string Name { get; set; }
