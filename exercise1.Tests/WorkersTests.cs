@@ -12,7 +12,7 @@ namespace exercise1.Tests
     public class WorkersTests
     {
         [Fact]
-        public async Task StringWithWorkerLevel_ReturnStringR9_WhenGivenStringBoss()
+        public void StringWithWorkerLevel_ReturnStringR9_WhenGivenStringBoss()
         {
             //Arrange
             var worker = "boss";
@@ -27,19 +27,19 @@ namespace exercise1.Tests
         }
 
         [Fact]
-        public async Task tmp()
+        public void tmp()
         {
             //Arrange
-            var workerService = new Mock<IWorkerService>();
-            workerService.Setup(x => x.Count("boss")).Returns(1);
-            int expecteAmoutOfWorkers = 1;
+            var workerServiceMock = new Mock<IWorkerService>();
+            workerServiceMock.Setup(x => x.Count("boss")).Returns(1);
+            int expectedAmountOfWorkers = 1;
 
             //Act
             var service = new WorkersService();
-            var countedAllWorkers = service.CountAllWorkers(workerService.Object, "boss");
+            var countedWorkers = service.CountAllWorkersWithGivenLevel(workerServiceMock.Object, "boss");
 
             //Act
-            Assert.True(countedAllWorkers == expecteAmoutOfWorkers);
+            Assert.True(countedWorkers == expectedAmountOfWorkers);
         }
     }
 }
