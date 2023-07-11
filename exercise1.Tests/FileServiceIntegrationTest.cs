@@ -10,7 +10,7 @@ namespace exercise1.Tests
 {
     public class FileServiceIntegrationTest
     {
-        public DataContext arangeDb()
+        public DataContext arangeDb() // z dużej, private bo enkaspulacja
         {
             DbContextOptions<DataContext> dbContextOptions = new DbContextOptionsBuilder<DataContext>()
             .UseInMemoryDatabase(databaseName: "dbo")
@@ -20,7 +20,9 @@ namespace exercise1.Tests
             return context;
         }
         [Fact]
-        public async Task FileRepository_Update_OvverrideWithSameName()
+        public async Task FileRepository_Update_OvverrideWithSameName() //FileService
+        // Given_When_Then
+        // 
         {
             //Arange
             var context = arangeDb();
@@ -55,7 +57,8 @@ namespace exercise1.Tests
             //Asert
             var res = context.File.Count();
             res.Should().Be(1);
-
+//
+//
             
         }
 

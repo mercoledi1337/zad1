@@ -14,6 +14,10 @@ namespace Application.Services
 
         public int CountAllWorkersWithGivenLevel(IWorkerService workerService, string boss)
         {
+            // var res = workerService.Get();   
+            // res.Count(x => x.Contains(boss))
+
+
             return workerService.Count(boss);
         }
 

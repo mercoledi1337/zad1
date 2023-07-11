@@ -13,6 +13,7 @@ namespace exercise1.Tests
     {
         [Fact]
         public void StringWithWorkerLevel_ReturnStringR9_WhenGivenStringBoss()
+        // GetCaptainNumber_BasedOnLevel_ReturnValidValue // rename w tym stylu
         {
             //Arrange
             var worker = "boss";
@@ -27,7 +28,7 @@ namespace exercise1.Tests
         }
 
         [Fact]
-        public void tmp()
+        public void tmp() // rename
         {
             //Arrange
             var workerServiceMock = new Mock<IWorkerService>();
