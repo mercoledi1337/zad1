@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace exercise1.Tests
 {
-    public class WorkersTests
+    public class WorkersTests // todo rename
     {
         [Fact]
         public void StringWithWorkerLevel_ReturnStringR9_WhenGivenStringBoss()
