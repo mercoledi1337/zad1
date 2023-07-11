@@ -23,7 +23,7 @@ namespace exercise1.Tests
             var service = new WorkersService();
             var boss = service.GetWorkerByLevel(worker);
 
-            //Act
+            //Asert
             Assert.True(expectedBoss == boss);
         }
 
@@ -39,7 +39,7 @@ namespace exercise1.Tests
             var service = new WorkersService();
             var countedWorkers = service.CountAllWorkersWithGivenLevel(workerServiceMock.Object, "boss");
 
-            //Act
+            //Asert
             Assert.True(countedWorkers == expectedAmountOfWorkers);
         }
     }
