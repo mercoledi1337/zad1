@@ -12,9 +12,9 @@ namespace Application.Services
                 return "Messi";
         }
 
-        public int CountAllWorkers(IWorkerService workerService)
+        public int CountAllWorkers(IWorkerService workerService, string boss)
         {
-            return workerService.Count();
+            return workerService.Count(boss);
         }
 
 

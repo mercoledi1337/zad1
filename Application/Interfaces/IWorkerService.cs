@@ -2,6 +2,6 @@
 {
     public interface IWorkerService
     {
-        int Count();
+        int Count(string boss);
     }
 }

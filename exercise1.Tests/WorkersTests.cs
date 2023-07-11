@@ -31,12 +31,12 @@ namespace exercise1.Tests
         {
             //Arrange
             var workerService = new Mock<IWorkerService>();
-            workerService.Setup(x => x.Count()).Returns(2);
-            int expecteAmoutOfWorkers = 2;
+            workerService.Setup(x => x.Count("boss")).Returns(1);
+            int expecteAmoutOfWorkers = 1;
 
             //Act
             var service = new WorkersService();
-            var countedAllWorkers = service.CountAllWorkers(workerService.Object);
+            var countedAllWorkers = service.CountAllWorkers(workerService.Object, "boss");
 
             //Act
             Assert.True(countedAllWorkers == expecteAmoutOfWorkers);
