@@ -39,7 +39,7 @@ namespace exercise1.Tests
             var service = new WorkersService();
             var countedWorkers = service.CountAllWorkersWithGivenLevel(workerServiceMock.Object, "boss");
 
-            //Asert
+            //Asertt
             Assert.True(countedWorkers == expectedAmountOfWorkers);
         }
     }
