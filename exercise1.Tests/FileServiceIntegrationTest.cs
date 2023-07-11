@@ -10,7 +10,7 @@ namespace exercise1.Tests
 {
     public class FileServiceIntegrationTest
     {
-        public DataContext arangeDb() // z dużej, private bo enkaspulacja
+        private DataContext ArangeDb() 
         {
             DbContextOptions<DataContext> dbContextOptions = new DbContextOptionsBuilder<DataContext>()
             .UseInMemoryDatabase(databaseName: "dbo")
@@ -20,12 +20,10 @@ namespace exercise1.Tests
             return context;
         }
         [Fact]
-        public async Task FileRepository_Update_OvverrideWithSameName() //FileService
-        // Given_When_Then
-        // 
+        public async Task GivenCsv_UploadCsvTo_ShouldBeOverrideWithSameNameCsv()
         {
             //Arange
-            var context = arangeDb();
+            var context = ArangeDb();
             var stream = System.IO.File.OpenRead("test.csv");
             IFormFile tmpFile = new FormFile(stream, 0, stream.Length, null, Path.GetFileName(stream.Name));
             var fileUpload = new FileRepository(context);
@@ -45,7 +43,7 @@ namespace exercise1.Tests
         public async Task GivenCsv_UploadCsvTo_ShouldBeAddedToDb()
         {
             //Arange
-            var context = arangeDb();
+            var context = ArangeDb();
             var stream = System.IO.File.OpenRead("test.csv");
             IFormFile tmpFile = new FormFile(stream, 0, stream.Length, null, Path.GetFileName(stream.Name));
             var fileUpload = new FileRepository(context);
@@ -56,12 +54,7 @@ namespace exercise1.Tests
 
             //Asert
             var res = context.File.Count();
-            res.Should().Be(1);
-//
-//
-            
+            res.Should().Be(1); 
         }
-
-
     }
 }

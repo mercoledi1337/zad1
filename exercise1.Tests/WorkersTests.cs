@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace exercise1.Tests
 {
-    public class WorkersTests // todo rename
+    public class WorkersUnitTests 
     {
         [Fact]
-        public void StringWithWorkerLevel_ReturnStringR9_WhenGivenStringBoss()
-        // GetCaptainNumber_BasedOnLevel_ReturnValidValue // rename w tym stylu
+        public void GetWorker_BasedOnLevel_ReturnValidValue()
+        
         {
             //Arrange
             var worker = "boss";
@@ -28,7 +28,7 @@ namespace exercise1.Tests
         }
 
         [Fact]
-        public void tmp() // rename
+        public void GetAmountOfWorker_BasedOnLevel_ReturnValidValue()
         {
             //Arrange
             var workerServiceMock = new Mock<IWorkerService>();
