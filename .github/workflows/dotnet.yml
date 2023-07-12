@@ -9,9 +9,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-env: 
-  AZURE_WEBAPP_NAME: michal-exercise-1
-  AZURE_WEBAPP_PACKAGE_PATH: "./publish"
 
 jobs:
   publish:
@@ -34,7 +31,7 @@ jobs:
       run: dotnet test --no-build --verbosity normal
     
     - name: Publish
-      run: dotnet publish --no-build --output '${{ AZURE_WEBAPP_PACKAGE_PATH }}'
+      run: dotnet publish --no-build --output './publish'
 
     - name: Deployment
       uses: azure/webapps-deploy@v2
