@@ -9,9 +9,12 @@ on:
   pull_request:
     branches: [ "main" ]
 
-jobs:
-  build:
+env: 
+  AZURE_WEBAPP_NAME: michal-exercise-1
+  AZURE_WEBAPP_PACKAGE_PATH: "./publish"
 
+jobs:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,9 +23,22 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
+        
     - name: Restore dependencies
       run: dotnet restore
+      
     - name: Build
       run: dotnet build --no-restore
+      
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    
+    - name: Publish
+      run: dotnet publish --no-build --output '${{ AZURE_WEBAPP_PACKAGE_PATH }}'
+
+    - name: Deployment
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secret.AZURE_PUBLISH_PROFILE }}
+        package: ${{ AZURE_WEBAPP_PACKAGE_PATH }}
